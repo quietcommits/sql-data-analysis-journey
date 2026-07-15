@@ -13,57 +13,48 @@ VALUES
 ('David', 'Accounting', 75000),
 ('Emma', 'Marketing', 65000);
 
--- Problem 1: High earners list
+-- Problem 1: Count employees in each department
 -- Task:
--- Write a SQL query that selects the name and salary 
--- of all employees who earn MORE THAN 65,000.
---
--- Print name and salary.
+-- Write a SQL query that displays each department
+-- and the number of employees in that department.
 
-SELECT name, salary
+SELECT department, COUNT(name)
 FROM employees
-WHERE salary > 65000;
+GROUP BY department;
 
--- Problem 2: Find employees in IT department
+-- Problem 2: Find the average salary by department
 -- Task:
--- Write a SQL query that selects all columns (*) 
--- for employees who work in the 'IT' department.
---
--- Print all columns.
+-- Write a SQL query that displays each department
+-- and its average salary.
 
-SELECT *
+SELECT department, AVG(salary)
 FROM employees
-WHERE department = 'IT';
+GROUP BY department;
 
--- Problem 3: Count employees with high salaries
+-- Problem 3: Find the total salary by department
 -- Task:
--- Write a SQL query that counts the total number of 
--- employees who earn 70,000 or more.
---
--- Print the count.
+-- Write a SQL query that displays each department
+-- and the total salary of employees
+-- in that department.
 
-SELECT COUNT(name)
+SELECT department, SUM(salary)
 FROM employees
-WHERE salary >= 70000;
+GROUP BY department;
 
--- Problem 4: Sort employees by salary (Highest first)
+-- Problem 4: Find the highest salary in each department
 -- Task:
--- Write a SQL query that selects the name and salary 
--- of all employees, sorted by salary in DESCENDING order (highest to lowest).
---
--- Print name and salary.
+-- Write a SQL query that displays each department
+-- and the highest salary in that department.
 
-SELECT name, salary
+SELECT department, MAX(salary)
 FROM employees
-ORDER BY salary DESC;
+GROUP BY department;
 
--- Problem 5: Find the highest salary in Accounting
+-- Problem 5: Find the lowest salary in each department
 -- Task:
--- Write a SQL query that finds the highest (MAX) salary 
--- among employees who work in the 'Accounting' department.
---
--- Print the highest salary.
+-- Write a SQL query that displays each department
+-- and the lowest salary in that department.
 
-SELECT MAX(salary)
+SELECT department, MIN(salary)
 FROM employees
-WHERE department = 'Accounting';
+GROUP BY department;
